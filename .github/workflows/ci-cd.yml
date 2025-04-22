@@ -1,0 +1,55 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK 23
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '23'
+
+      - name: Build with Maven
+        run: mvn -B clean package --file pom.xml
+
+  docker:
+    needs: build-and-test
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Log in to GitHub Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Build Docker image
+        run: |
+          docker build -t ghcr.io/${{ github.repository }}/originaltaskmanager:latest .
+
+      - name: Push Docker image
+        run: |
+          docker push ghcr.io/${{ github.repository }}/originaltaskmanager:latest
+
+  deploy-demo:
+    needs: docker
+    runs-on: ubuntu-latest
+    steps:
+      - name: Simulated deployment to AWS EC2 (demo)
+        run: |
+          echo "Simulating deployment..."
+          echo "Pulling Docker image: ghcr.io/${{ github.repository }}/originaltaskmanager:latest"
+          echo "Running container on EC2 (this is just a placeholder!)"
