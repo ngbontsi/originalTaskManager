@@ -5,7 +5,7 @@ FROM eclipse-temurin:23-jdk
 WORKDIR /app
 
 # Copy the built jar file into the container
-COPY target/originalTaskManager-1.0-SNAPSHOT.jar app.jar
+COPY target/originaltaskmanager-1.0-SNAPSHOT.jar app.jar
 
 # Run the jar file
 ENTRYPOINT ["java", "-jar", "app.jar"]
