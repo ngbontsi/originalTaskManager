@@ -40,7 +40,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ghcr.io/${{ github.repository }}/originaltaskmanager:latest .
+          DOCKER_BUILDKIT=0 docker build -t ghcr.io/${{ github.repository }}/originaltaskmanager:latest .
 
       - name: Push Docker image
         run: |
