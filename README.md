@@ -91,7 +91,12 @@ Unit and integration tests are executed automatically in the CI pipeline.
 All contributors are welcome!
 
 ---
+## 🛠️ CI/CD DevOps Pipeline
 
+Below is the flow of our DevOps pipeline for building, testing, and deploying:
+
+![DevOps Pipeline](assets/devops-pipeline.png)
+---
 ## 👤 Author
 
 **Ndimphiwe Given Bontsi**\
