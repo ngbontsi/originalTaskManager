@@ -1,2 +1,18 @@
+# Ignore Git and build files
 .git
-README.md
+.gitignore
+
+# Maven target folder (UNLESS you need the JAR for Docker)
+# Uncomment the next line if Docker doesn't copy from it:
+# target/
+
+# IDE settings
+.idea/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
