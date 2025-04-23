@@ -58,12 +58,12 @@ jobs:
 
       - name: Build Docker image
         run: |
-          IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/originaltaskmanager:latest
+          IMAGE_NAME=ghcr.io/${{ github.actor }}/originaltaskmanager:latest
           docker build -t $IMAGE_NAME .
 
       - name: Push Docker image
         run: |
-          IMAGE_NAME=ghcr.io/${{ github.repository_owner }}/originaltaskmanager:latest
+          IMAGE_NAME=ghcr.io/${{ github.actor }}/originaltaskmanager:latest
           docker push $IMAGE_NAME
 
   deploy-demo:
@@ -73,5 +73,5 @@ jobs:
       - name: Simulated deployment to AWS EC2 (demo)
         run: |
           echo "Simulating deployment..."
-          echo "Pulling Docker image: ghcr.io/${{ github.repository_owner }}/originaltaskmanager:latest"
+          echo "Pulling Docker image: ghcr.io/${{ github.actor }}/originaltaskmanager:latest"
           echo "Running container on EC2 (this is just a placeholder!)"
