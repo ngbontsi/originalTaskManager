@@ -51,11 +51,11 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t ghcr.io/${{ github.repository }}/originaltaskmanager:latest .
+          docker build -t ghcr.io/ngbontsi/originaltaskmanager/originaltaskmanager:latest .
 
       - name: Push Docker image
         run: |
-          docker push ghcr.io/${{ github.repository }}/originaltaskmanager:latest
+          docker push ghcr.io/ngbontsi/originaltaskmanager/originaltaskmanager:latest
 
   deploy-demo:
     needs: docker
@@ -64,5 +64,5 @@ jobs:
       - name: Simulated deployment to AWS EC2 (demo)
         run: |
           echo "Simulating deployment..."
-          echo "Pulling Docker image: ghcr.io/${{ github.repository }}/originaltaskmanager:latest"
+          echo "Pulling Docker image: ghcr.io/ngbontsi/originaltaskmanager/originaltaskmanager:latest"
           echo "Running container on EC2 (this is just a placeholder!)"
