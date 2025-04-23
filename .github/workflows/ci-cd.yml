@@ -58,12 +58,12 @@ jobs:
 
       - name: Build Docker image
         run: |
-          IMAGE_NAME=ghcr.io/${{ github.actor }}/originaltaskmanager:latest
+          IMAGE_NAME=ghcr.io/ngbontsi/originaltaskmanager:latest
           docker build -t $IMAGE_NAME .
 
       - name: Push Docker image
         run: |
-          IMAGE_NAME=ghcr.io/${{ github.actor }}/originaltaskmanager:latest
+          IMAGE_NAME=ghcr.io/ngbontsi/originaltaskmanager:latest
           docker push $IMAGE_NAME
 
   deploy-demo:
