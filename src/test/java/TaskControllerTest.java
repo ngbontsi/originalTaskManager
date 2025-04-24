@@ -3,11 +3,14 @@ import org.mockito.Mockito;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import za.co.ngbontsi.api.constant.TaskStatus;
 import za.co.ngbontsi.api.controler.TaskController;
 import za.co.ngbontsi.api.model.Task;
 import za.co.ngbontsi.api.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -30,7 +33,7 @@ public class TaskControllerTest {
 
         Mockito.when(taskService.getAllTasks()).thenReturn(mockTasks);
 
-        mockMvc.perform(get("/api/tasks"))
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/tasks"))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$.statusCode").value(200))
                 .andExpect(jsonPath("$.message").value("Tasks retrieved"))
