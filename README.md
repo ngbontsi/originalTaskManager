@@ -89,7 +89,54 @@ Unit and integration tests are executed automatically in the CI pipeline.
 4. Push and open a PR
 
 All contributors are welcome!
+---
+---
 
+## 📦 Running Locally with Docker
+
+To run the `originaltaskmanager` Spring Boot application inside Docker:
+
+### **1. Build the Application**
+
+```bash
+./mvnw clean package
+```
+
+This creates the JAR file in the `target/` directory.
+
+---
+
+### **2. Build the Docker Image**
+
+```bash
+docker build -t originaltaskmanager:local .
+```
+
+---
+
+### **3. Run the Docker Container**
+
+```bash
+docker run -p 8080:8080 originaltaskmanager:local
+```
+
+This will:
+- Start the application
+- Map port `8080` from the container to your local machine
+
+You can now access the app at:  
+👉 [http://localhost:8080](http://localhost:8080)
+
+---
+
+### ✅ Requirements
+
+Make sure you have:
+- [Docker Desktop](https://www.docker.com/products/docker-desktop) installed and running
+- Docker integrated with your IDE (optional but recommended)
+- Java 17+ and Maven installed (or use Maven wrapper `./mvnw`)
+
+---
 ---
 ## 🛠️ CI/CD DevOps Pipeline
 
