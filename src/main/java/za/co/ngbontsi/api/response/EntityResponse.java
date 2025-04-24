@@ -2,9 +2,9 @@ package za.co.ngbontsi.api.response;
 
 public class EntityResponse<T> {
 
-    private int statusCode;
-    private String message;
-    private T data;
+    final private int statusCode;
+   final private String message;
+    final private T data;
 
     public EntityResponse(int statusCode, String message, T data) {
         this.statusCode = statusCode;
@@ -16,15 +16,5 @@ public class EntityResponse<T> {
         this(statusCode, message, null);
     }
 
-    public int getStatusCode() {
-        return statusCode;
-    }
 
-    public String getMessage() {
-        return message;
-    }
-
-    public T getData() {
-        return data;
-    }
 }
