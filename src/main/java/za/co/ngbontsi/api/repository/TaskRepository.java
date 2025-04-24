@@ -7,5 +7,5 @@ import za.co.ngbontsi.api.model.Task;
 import java.util.UUID;
 
 @Repository
-public class TaskRepository extends JpaRepository<Task, UUID> {
+public interface TaskRepository extends JpaRepository<Task, UUID> {
 }
