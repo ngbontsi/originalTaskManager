@@ -137,6 +137,28 @@ Make sure you have:
 - Java 17+ and Maven installed (or use Maven wrapper `./mvnw`)
 
 ---
+### 🚀 What does this PR do?
+<!-- Describe your changes here -->
+
+---
+
+### ✅ Checklist before requesting review:
+- [ ] The code compiles and runs locally
+- [ ] All tests pass (if applicable)
+- [ ] I've added or updated documentation
+- [ ] I've linked the related issue (if any)
+- [ ] I've updated the status of the task (if tracked)
+
+---
+
+### 🧠 Additional context (optional)
+<!-- Add screenshots, references, or context here -->
+
+---
+
+### 📅 Deadline (if any)
+<!-- Add if there's urgency -->
+
 ---
 ## 🛠️ CI/CD DevOps Pipeline
 

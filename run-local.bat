@@ -1,0 +1,6 @@
+@echo off
+echo Cleaning and packaging the Spring Boot app...
+mvn clean package -DskipTests=false
+
+echo Building and running the Docker container using docker-compose...
+docker-compose up --build

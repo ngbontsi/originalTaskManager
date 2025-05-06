@@ -1,11 +1,15 @@
-# Use Eclipse Temurin JDK 23 as base image
-FROM eclipse-temurin:23-jdk
+# Use lightweight JDK base image
+FROM eclipse-temurin:21-jdk-alpine
 
-# Set working directory inside container
-WORKDIR /app
+# Set environment variables
+ENV APP_HOME=/app
+WORKDIR $APP_HOME
 
-# Copy the built jar file into the container
+# Copy the JAR file from the local Maven build
 COPY target/originaltaskmanager-1.0-SNAPSHOT.jar app.jar
 
-# Run the jar file
+# Expose the Spring Boot default port
+EXPOSE 8080
+
+# Run the JAR
 ENTRYPOINT ["java", "-jar", "app.jar"]
